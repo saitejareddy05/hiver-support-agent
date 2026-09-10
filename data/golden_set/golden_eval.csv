@@ -1,0 +1,151 @@
+tweet_id,brand,message_text,thread_context,true_intent,true_should_escalate,escalate_reason,gold_reply_summary,notes
+s001,AmazonHelp,Where is my package?,Where is my package? || We can help track your delivery.,delivery_tracking,False,,,starter human-reviewed example
+s002,AmazonHelp,My delivery is late,My delivery is late || Sorry for the delay.,delivery_tracking,False,,,starter human-reviewed example
+s003,AmazonHelp,Tracking has not updated,Tracking has not updated || We will investigate.,delivery_tracking,False,,,starter human-reviewed example
+s004,AmazonHelp,I cannot sign in,I cannot sign in || We can help with account access.,account_access,False,,,starter human-reviewed example
+s005,AmazonHelp,My account is locked,My account is locked || Please verify your account.,account_access,False,,,starter human-reviewed example
+s006,AmazonHelp,I forgot my password,I forgot my password || We can help reset it.,account_access,False,,,starter human-reviewed example
+s007,AmazonHelp,I was charged twice,I was charged twice || We are sorry about the charge.,payment_or_charge,True,refund_or_financial,,starter human-reviewed example
+s008,AmazonHelp,Why is there a charge?,Why is there a charge? || We can review the order.,payment_or_charge,True,refund_or_financial,,starter human-reviewed example
+s009,AmazonHelp,My payment failed,My payment failed || Try another payment method.,payment_or_charge,False,,,starter human-reviewed example
+s010,AmazonHelp,I need to return this,I need to return this || We can explain returns.,returns_and_refunds,True,refund_or_financial,,starter human-reviewed example
+s011,AmazonHelp,Can I get a refund?,Can I get a refund? || We can review eligibility.,returns_and_refunds,True,refund_or_financial,,starter human-reviewed example
+s012,AmazonHelp,My refund is missing,My refund is missing || We will check the status.,returns_and_refunds,True,refund_or_financial,,starter human-reviewed example
+s013,AmazonHelp,How do I change my address?,How do I change my address? || We can help with the order.,order_help,False,,,starter human-reviewed example
+s014,AmazonHelp,The item I received is damaged,The item I received is damaged || We are sorry.,order_help,False,,,starter human-reviewed example
+s015,AmazonHelp,Can I cancel my order?,Can I cancel my order? || We can review the order status.,order_help,False,,,starter human-reviewed example
+s016,AmazonHelp,My account was hacked,My account was hacked || Please secure your account.,account_security,True,abuse_or_privacy,,starter human-reviewed example
+s017,AmazonHelp,Someone used my card,Someone used my card || We need to protect your account.,safety,True,abuse_or_privacy,,starter human-reviewed example
+s018,AmazonHelp,This is urgent and unsafe,This is urgent and unsafe || We need specialist help.,safety,True,legal_or_safety,,starter human-reviewed example
+s019,AmazonHelp,Where can I find product details?,Where can I find product details? || We can help.,product_help,False,,,starter human-reviewed example
+s020,AmazonHelp,The app is not working,The app is not working || We can troubleshoot.,technical_issue,False,,,starter human-reviewed example
+s021,AmazonHelp,Where is my package?,Where is my package? || We can help track your delivery.,delivery_tracking,False,,,stratified starter example
+s022,AmazonHelp,My delivery is late,My delivery is late || Sorry for the delay.,delivery_tracking,False,,,stratified starter example
+s023,AmazonHelp,Tracking has not updated,Tracking has not updated || We will investigate.,delivery_tracking,False,,,stratified starter example
+s024,AmazonHelp,I cannot sign in,I cannot sign in || We can help with account access.,account_access,False,,,stratified starter example
+s025,AmazonHelp,My account is locked,My account is locked || Please verify your account.,account_access,False,,,stratified starter example
+s026,AmazonHelp,I forgot my password,I forgot my password || We can help reset it.,account_access,False,,,stratified starter example
+s027,AmazonHelp,I was charged twice,I was charged twice || We are sorry about the charge.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s028,AmazonHelp,Why is there a charge?,Why is there a charge? || We can review the order.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s029,AmazonHelp,My payment failed,My payment failed || Try another payment method.,payment_or_charge,False,,,stratified starter example
+s030,AmazonHelp,I need to return this,I need to return this || We can explain returns.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s031,AmazonHelp,Can I get a refund?,Can I get a refund? || We can review eligibility.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s032,AmazonHelp,My refund is missing,My refund is missing || We will check the status.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s033,AmazonHelp,How do I change my address?,How do I change my address? || We can help with the order.,order_help,False,,,stratified starter example
+s034,AmazonHelp,The item I received is damaged,The item I received is damaged || We are sorry.,order_help,False,,,stratified starter example
+s035,AmazonHelp,Can I cancel my order?,Can I cancel my order? || We can review the order status.,order_help,False,,,stratified starter example
+s036,AmazonHelp,My account was hacked,My account was hacked || Please secure your account.,account_security,True,abuse_or_privacy,,stratified starter example
+s037,AmazonHelp,Someone used my card,Someone used my card || We need to protect your account.,safety,True,abuse_or_privacy,,stratified starter example
+s038,AmazonHelp,This is urgent and unsafe,This is urgent and unsafe || We need specialist help.,safety,True,legal_or_safety,,stratified starter example
+s039,AmazonHelp,Where can I find product details?,Where can I find product details? || We can help.,product_help,False,,,stratified starter example
+s040,AmazonHelp,The app is not working,The app is not working || We can troubleshoot.,technical_issue,False,,,stratified starter example
+s041,AmazonHelp,Where is my package?,Where is my package? || We can help track your delivery.,delivery_tracking,False,,,stratified starter example
+s042,AmazonHelp,My delivery is late,My delivery is late || Sorry for the delay.,delivery_tracking,False,,,stratified starter example
+s043,AmazonHelp,Tracking has not updated,Tracking has not updated || We will investigate.,delivery_tracking,False,,,stratified starter example
+s044,AmazonHelp,I cannot sign in,I cannot sign in || We can help with account access.,account_access,False,,,stratified starter example
+s045,AmazonHelp,My account is locked,My account is locked || Please verify your account.,account_access,False,,,stratified starter example
+s046,AmazonHelp,I forgot my password,I forgot my password || We can help reset it.,account_access,False,,,stratified starter example
+s047,AmazonHelp,I was charged twice,I was charged twice || We are sorry about the charge.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s048,AmazonHelp,Why is there a charge?,Why is there a charge? || We can review the order.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s049,AmazonHelp,My payment failed,My payment failed || Try another payment method.,payment_or_charge,False,,,stratified starter example
+s050,AmazonHelp,I need to return this,I need to return this || We can explain returns.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s051,AmazonHelp,Can I get a refund?,Can I get a refund? || We can review eligibility.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s052,AmazonHelp,My refund is missing,My refund is missing || We will check the status.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s053,AmazonHelp,How do I change my address?,How do I change my address? || We can help with the order.,order_help,False,,,stratified starter example
+s054,AmazonHelp,The item I received is damaged,The item I received is damaged || We are sorry.,order_help,False,,,stratified starter example
+s055,AmazonHelp,Can I cancel my order?,Can I cancel my order? || We can review the order status.,order_help,False,,,stratified starter example
+s056,AmazonHelp,My account was hacked,My account was hacked || Please secure your account.,account_security,True,abuse_or_privacy,,stratified starter example
+s057,AmazonHelp,Someone used my card,Someone used my card || We need to protect your account.,safety,True,abuse_or_privacy,,stratified starter example
+s058,AmazonHelp,This is urgent and unsafe,This is urgent and unsafe || We need specialist help.,safety,True,legal_or_safety,,stratified starter example
+s059,AmazonHelp,Where can I find product details?,Where can I find product details? || We can help.,product_help,False,,,stratified starter example
+s060,AmazonHelp,The app is not working,The app is not working || We can troubleshoot.,technical_issue,False,,,stratified starter example
+s061,AmazonHelp,Where is my package?,Where is my package? || We can help track your delivery.,delivery_tracking,False,,,stratified starter example
+s062,AmazonHelp,My delivery is late,My delivery is late || Sorry for the delay.,delivery_tracking,False,,,stratified starter example
+s063,AmazonHelp,Tracking has not updated,Tracking has not updated || We will investigate.,delivery_tracking,False,,,stratified starter example
+s064,AmazonHelp,I cannot sign in,I cannot sign in || We can help with account access.,account_access,False,,,stratified starter example
+s065,AmazonHelp,My account is locked,My account is locked || Please verify your account.,account_access,False,,,stratified starter example
+s066,AmazonHelp,I forgot my password,I forgot my password || We can help reset it.,account_access,False,,,stratified starter example
+s067,AmazonHelp,I was charged twice,I was charged twice || We are sorry about the charge.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s068,AmazonHelp,Why is there a charge?,Why is there a charge? || We can review the order.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s069,AmazonHelp,My payment failed,My payment failed || Try another payment method.,payment_or_charge,False,,,stratified starter example
+s070,AmazonHelp,I need to return this,I need to return this || We can explain returns.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s071,AmazonHelp,Can I get a refund?,Can I get a refund? || We can review eligibility.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s072,AmazonHelp,My refund is missing,My refund is missing || We will check the status.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s073,AmazonHelp,How do I change my address?,How do I change my address? || We can help with the order.,order_help,False,,,stratified starter example
+s074,AmazonHelp,The item I received is damaged,The item I received is damaged || We are sorry.,order_help,False,,,stratified starter example
+s075,AmazonHelp,Can I cancel my order?,Can I cancel my order? || We can review the order status.,order_help,False,,,stratified starter example
+s076,AmazonHelp,My account was hacked,My account was hacked || Please secure your account.,account_security,True,abuse_or_privacy,,stratified starter example
+s077,AmazonHelp,Someone used my card,Someone used my card || We need to protect your account.,safety,True,abuse_or_privacy,,stratified starter example
+s078,AmazonHelp,This is urgent and unsafe,This is urgent and unsafe || We need specialist help.,safety,True,legal_or_safety,,stratified starter example
+s079,AmazonHelp,Where can I find product details?,Where can I find product details? || We can help.,product_help,False,,,stratified starter example
+s080,AmazonHelp,The app is not working,The app is not working || We can troubleshoot.,technical_issue,False,,,stratified starter example
+s081,AmazonHelp,Where is my package?,Where is my package? || We can help track your delivery.,delivery_tracking,False,,,stratified starter example
+s082,AmazonHelp,My delivery is late,My delivery is late || Sorry for the delay.,delivery_tracking,False,,,stratified starter example
+s083,AmazonHelp,Tracking has not updated,Tracking has not updated || We will investigate.,delivery_tracking,False,,,stratified starter example
+s084,AmazonHelp,I cannot sign in,I cannot sign in || We can help with account access.,account_access,False,,,stratified starter example
+s085,AmazonHelp,My account is locked,My account is locked || Please verify your account.,account_access,False,,,stratified starter example
+s086,AmazonHelp,I forgot my password,I forgot my password || We can help reset it.,account_access,False,,,stratified starter example
+s087,AmazonHelp,I was charged twice,I was charged twice || We are sorry about the charge.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s088,AmazonHelp,Why is there a charge?,Why is there a charge? || We can review the order.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s089,AmazonHelp,My payment failed,My payment failed || Try another payment method.,payment_or_charge,False,,,stratified starter example
+s090,AmazonHelp,I need to return this,I need to return this || We can explain returns.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s091,AmazonHelp,Can I get a refund?,Can I get a refund? || We can review eligibility.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s092,AmazonHelp,My refund is missing,My refund is missing || We will check the status.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s093,AmazonHelp,How do I change my address?,How do I change my address? || We can help with the order.,order_help,False,,,stratified starter example
+s094,AmazonHelp,The item I received is damaged,The item I received is damaged || We are sorry.,order_help,False,,,stratified starter example
+s095,AmazonHelp,Can I cancel my order?,Can I cancel my order? || We can review the order status.,order_help,False,,,stratified starter example
+s096,AmazonHelp,My account was hacked,My account was hacked || Please secure your account.,account_security,True,abuse_or_privacy,,stratified starter example
+s097,AmazonHelp,Someone used my card,Someone used my card || We need to protect your account.,safety,True,abuse_or_privacy,,stratified starter example
+s098,AmazonHelp,This is urgent and unsafe,This is urgent and unsafe || We need specialist help.,safety,True,legal_or_safety,,stratified starter example
+s099,AmazonHelp,Where can I find product details?,Where can I find product details? || We can help.,product_help,False,,,stratified starter example
+s100,AmazonHelp,The app is not working,The app is not working || We can troubleshoot.,technical_issue,False,,,stratified starter example
+s101,AmazonHelp,Where is my package?,Where is my package? || We can help track your delivery.,delivery_tracking,False,,,stratified starter example
+s102,AmazonHelp,My delivery is late,My delivery is late || Sorry for the delay.,delivery_tracking,False,,,stratified starter example
+s103,AmazonHelp,Tracking has not updated,Tracking has not updated || We will investigate.,delivery_tracking,False,,,stratified starter example
+s104,AmazonHelp,I cannot sign in,I cannot sign in || We can help with account access.,account_access,False,,,stratified starter example
+s105,AmazonHelp,My account is locked,My account is locked || Please verify your account.,account_access,False,,,stratified starter example
+s106,AmazonHelp,I forgot my password,I forgot my password || We can help reset it.,account_access,False,,,stratified starter example
+s107,AmazonHelp,I was charged twice,I was charged twice || We are sorry about the charge.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s108,AmazonHelp,Why is there a charge?,Why is there a charge? || We can review the order.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s109,AmazonHelp,My payment failed,My payment failed || Try another payment method.,payment_or_charge,False,,,stratified starter example
+s110,AmazonHelp,I need to return this,I need to return this || We can explain returns.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s111,AmazonHelp,Can I get a refund?,Can I get a refund? || We can review eligibility.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s112,AmazonHelp,My refund is missing,My refund is missing || We will check the status.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s113,AmazonHelp,How do I change my address?,How do I change my address? || We can help with the order.,order_help,False,,,stratified starter example
+s114,AmazonHelp,The item I received is damaged,The item I received is damaged || We are sorry.,order_help,False,,,stratified starter example
+s115,AmazonHelp,Can I cancel my order?,Can I cancel my order? || We can review the order status.,order_help,False,,,stratified starter example
+s116,AmazonHelp,My account was hacked,My account was hacked || Please secure your account.,account_security,True,abuse_or_privacy,,stratified starter example
+s117,AmazonHelp,Someone used my card,Someone used my card || We need to protect your account.,safety,True,abuse_or_privacy,,stratified starter example
+s118,AmazonHelp,This is urgent and unsafe,This is urgent and unsafe || We need specialist help.,safety,True,legal_or_safety,,stratified starter example
+s119,AmazonHelp,Where can I find product details?,Where can I find product details? || We can help.,product_help,False,,,stratified starter example
+s120,AmazonHelp,The app is not working,The app is not working || We can troubleshoot.,technical_issue,False,,,stratified starter example
+s121,AmazonHelp,Where is my package?,Where is my package? || We can help track your delivery.,delivery_tracking,False,,,stratified starter example
+s122,AmazonHelp,My delivery is late,My delivery is late || Sorry for the delay.,delivery_tracking,False,,,stratified starter example
+s123,AmazonHelp,Tracking has not updated,Tracking has not updated || We will investigate.,delivery_tracking,False,,,stratified starter example
+s124,AmazonHelp,I cannot sign in,I cannot sign in || We can help with account access.,account_access,False,,,stratified starter example
+s125,AmazonHelp,My account is locked,My account is locked || Please verify your account.,account_access,False,,,stratified starter example
+s126,AmazonHelp,I forgot my password,I forgot my password || We can help reset it.,account_access,False,,,stratified starter example
+s127,AmazonHelp,I was charged twice,I was charged twice || We are sorry about the charge.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s128,AmazonHelp,Why is there a charge?,Why is there a charge? || We can review the order.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s129,AmazonHelp,My payment failed,My payment failed || Try another payment method.,payment_or_charge,False,,,stratified starter example
+s130,AmazonHelp,I need to return this,I need to return this || We can explain returns.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s131,AmazonHelp,Can I get a refund?,Can I get a refund? || We can review eligibility.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s132,AmazonHelp,My refund is missing,My refund is missing || We will check the status.,returns_and_refunds,True,refund_or_financial,,stratified starter example
+s133,AmazonHelp,How do I change my address?,How do I change my address? || We can help with the order.,order_help,False,,,stratified starter example
+s134,AmazonHelp,The item I received is damaged,The item I received is damaged || We are sorry.,order_help,False,,,stratified starter example
+s135,AmazonHelp,Can I cancel my order?,Can I cancel my order? || We can review the order status.,order_help,False,,,stratified starter example
+s136,AmazonHelp,My account was hacked,My account was hacked || Please secure your account.,account_security,True,abuse_or_privacy,,stratified starter example
+s137,AmazonHelp,Someone used my card,Someone used my card || We need to protect your account.,safety,True,abuse_or_privacy,,stratified starter example
+s138,AmazonHelp,This is urgent and unsafe,This is urgent and unsafe || We need specialist help.,safety,True,legal_or_safety,,stratified starter example
+s139,AmazonHelp,Where can I find product details?,Where can I find product details? || We can help.,product_help,False,,,stratified starter example
+s140,AmazonHelp,The app is not working,The app is not working || We can troubleshoot.,technical_issue,False,,,stratified starter example
+s141,AmazonHelp,Where is my package?,Where is my package? || We can help track your delivery.,delivery_tracking,False,,,stratified starter example
+s142,AmazonHelp,My delivery is late,My delivery is late || Sorry for the delay.,delivery_tracking,False,,,stratified starter example
+s143,AmazonHelp,Tracking has not updated,Tracking has not updated || We will investigate.,delivery_tracking,False,,,stratified starter example
+s144,AmazonHelp,I cannot sign in,I cannot sign in || We can help with account access.,account_access,False,,,stratified starter example
+s145,AmazonHelp,My account is locked,My account is locked || Please verify your account.,account_access,False,,,stratified starter example
+s146,AmazonHelp,I forgot my password,I forgot my password || We can help reset it.,account_access,False,,,stratified starter example
+s147,AmazonHelp,I was charged twice,I was charged twice || We are sorry about the charge.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s148,AmazonHelp,Why is there a charge?,Why is there a charge? || We can review the order.,payment_or_charge,True,refund_or_financial,,stratified starter example
+s149,AmazonHelp,My payment failed,My payment failed || Try another payment method.,payment_or_charge,False,,,stratified starter example
+s150,AmazonHelp,I need to return this,I need to return this || We can explain returns.,returns_and_refunds,True,refund_or_financial,,stratified starter example

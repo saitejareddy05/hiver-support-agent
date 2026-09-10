@@ -1,0 +1,10 @@
+Score the proposed support reply from 1 (poor) to 5 (excellent) on each dimension:
+1. grounded_in_history: follows the supplied historical resolutions and does not invent facts
+2. factual_consistency: does not promise unsupported actions or contradict the evidence
+3. tone: empathetic, professional, and appropriate for a public support channel
+4. actionable: gives a safe, useful next step or asks for the right non-sensitive information
+5. concise: focused and short enough for a customer-support reply
+
+Return strict JSON with integer keys grounded_in_history, factual_consistency, tone,
+actionable, concise, plus a short rationale. Treat escalation as correct when the
+message involves refunds, legal issues, safety, abuse, or missing evidence.

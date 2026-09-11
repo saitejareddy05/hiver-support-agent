@@ -1,25 +1,21 @@
-# Hiver SDE Intern Take-Home — AI Support Agent for `@AskPlayStation`
+# Hiver Take-Home — AI Support Agent for `@AskPlayStation`
 
 An AI support agent built from the *Customer Support on Twitter* dataset shape,
 for a single brand (`@AskPlayStation`), that:
 
 1. Classifies each incoming customer message into one of 8 intents.
-2. Drafts a reply **grounded in retrieved historical resolutions** the brand has
-   actually used before (not generated from scratch).
+2. Drafts a reply **grounded in retrieved historical resolutions** the brand has actually used before (not generated from scratch).
 3. Decides **auto-handle vs. escalate to a human**, with a one-sentence stated reason.
 
-See **[reports/REPORT.md](reports/REPORT.md)** for the full write-up (problem
-framing, baseline comparison, failure analysis, and — most importantly — a section
-on what's misleading about the headline numbers), and
-**[reports/decision_log.md](reports/decision_log.md)** for 15 non-obvious decisions
-and why.
+See **[reports/REPORT.md](reports/REPORT.md)** for the full write-up (problem framing, baseline comparison, failure analysis, and — most importantly — a section on what's misleading about the headline numbers), and
+**[reports/decision_log.md](reports/decision_log.md)** for 15 non-obvious decisions and why.
 
 ---
 
-## TL;DR — reproduce the headline results in under 15 minutes
+## headline results 
 
 ```bash
-git clone <this-repo>
+git clone https://github.com/saitejareddy05/hiver-support-agent.git
 cd hiver-support-agent
 python3 -m venv .venv && source .venv/bin/activate     # optional but recommended
 pip install -r requirements.txt

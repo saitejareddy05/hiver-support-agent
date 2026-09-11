@@ -1,0 +1,31 @@
+sample_index,human_groundedness,human_helpfulness,human_tone,human_correctness,human_notes
+0,5,4,4,4,Relevant grounded repair-request reply for a genuine hardware noise complaint.
+1,5,4,4,4,Correctly asks for the info needed to investigate a duplicate-charge-style billing issue.
+2,5,5,4,4,Directly addresses the NAT type issue with a concrete fix.
+3,4,4,4,4,Acknowledges the known missing-bonus issue and asks for the right identifiers.
+4,1,1,3,1,Reply is about a status page / localized outage; message was a simple display-name how-to question. Totally off-topic.
+5,5,4,4,4,Same as row 0 (duplicate customer template); correct and grounded.
+6,5,5,5,4,Directly acknowledges the wait and gives a clear escalation path for the refund.
+7,5,5,4,4,"Specific, correct troubleshooting steps referencing the right error code."
+8,4,4,4,4,"Reasonable, honest answer to a cross-play question (correctly hedges since it varies by title)."
+9,4,3,5,4,Appropriately apologetic and offers escalation for a repeat-contact complaint.
+10,3,3,2,3,"Correct topic but the sentence is duplicated verbatim within the reply -- a generation bug, reads oddly and undermines trust."
+11,5,4,4,4,Correctly grounded DLC/entitlement troubleshooting reply.
+12,4,3,5,4,Duplicate of row 9's scenario; same reasoning.
+13,1,1,3,1,Message is a thank-you about a firmware fix; reply is an unrelated PS4->PS5 save transfer guide. Off-topic.
+14,4,3,5,4,Appropriate escalation offer for a repeat/urgent account compromise complaint.
+15,1,1,2,1,"Message is an out-of-scope press/comms request; reply is a generic PSN sign-in status update, and the sentence is duplicated. Off-topic plus a generation bug."
+16,4,4,5,4,"Appropriately empathetic response to a ""let me talk to a human"" request."
+17,5,5,4,4,"Clear, specific, actionable steps for a console power issue."
+18,5,4,4,4,"Direct, honest answer to a storage-size question."
+19,4,4,4,4,"Reasonable crash troubleshooting steps, plausible cause given the symptoms."
+20,5,4,4,4,Duplicate of row 2's scenario; correct and grounded.
+21,5,5,4,4,Correctly asks for the specific info needed to investigate a duplicate charge.
+22,5,4,4,4,Duplicate of row 3's scenario; correct and grounded.
+23,4,3,5,4,Duplicate of row 9's scenario; same reasoning.
+24,5,5,4,4,Duplicate of row 21's scenario; correct and grounded.
+25,5,5,4,4,Duplicate of row 7's scenario; correct and grounded.
+26,5,4,4,4,Duplicate of row 11's scenario; correct and grounded.
+27,5,5,4,4,Duplicate of row 7's scenario on a different console variant; correct.
+28,5,4,5,4,Appropriately urgent tone for a suspected account compromise.
+29,5,4,5,4,"Reasonable, on-topic explanation for a missing 2FA email."

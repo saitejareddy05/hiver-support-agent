@@ -1,41 +1,154 @@
-# Hiver Support Agent
+# Hiver SDE Intern Take-Home — AI Support Agent for `@AskPlayStation`
 
-A runnable, brand-specific customer-support prototype for the Customer Support on Twitter dataset, defaulting to `AmazonHelp`.
+An AI support agent built from the *Customer Support on Twitter* dataset shape,
+for a single brand (`@AskPlayStation`), that:
 
-## Setup
+1. Classifies each incoming customer message into one of 8 intents.
+2. Drafts a reply **grounded in retrieved historical resolutions** the brand has
+   actually used before (not generated from scratch).
+3. Decides **auto-handle vs. escalate to a human**, with a one-sentence stated reason.
 
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
+See **[reports/REPORT.md](reports/REPORT.md)** for the full write-up (problem
+framing, baseline comparison, failure analysis, and — most importantly — a section
+on what's misleading about the headline numbers), and
+**[reports/decision_log.md](reports/decision_log.md)** for 15 non-obvious decisions
+and why.
+
+---
+
+## TL;DR — reproduce the headline results in under 15 minutes
+
+```bash
+git clone <this-repo>
+cd hiver-support-agent
+python3 -m venv .venv && source .venv/bin/activate     # optional but recommended
 pip install -r requirements.txt
-Copy-Item .env.example .env
-```
 
-Download the Kaggle dataset `thoughtvector/customer-support-on-twitter` and place its CSV at `data/raw/twcs.csv`. The expected columns are documented in `data/raw/README.md`. Edit `config.yaml` to change the brand, model, threshold, or paths. `LLM_API_KEY` is optional; without it, the demo uses deterministic local drafting.
+# 1. Generate the bundled sample dataset (schema-identical to the real Kaggle file,
+#    see "Using the real dataset" below to swap in the real ~3M-row file instead)
+python data_gen/generate_sample_data.py
 
-## Reproduce the headline workflow
+# 2. Build the golden evaluation set (156 hand-labeled examples; see data/golden/)
+python data_gen/build_golden_set.py
 
-```powershell
-python -m src.data_prep --input data/raw/twcs.csv --brand AmazonHelp
-python -m src.intent_taxonomy --input data/processed/amazonhelp_threads.csv --output data/processed/amazonhelp_intents.csv
-python eval/build_golden_set.py --input data/processed/amazonhelp_intents.csv --output data/golden_set/golden_eval.csv --n 200
-# Human-label the blank truth columns, then:
-python -m eval.run_eval
-```
+# 3. Train the intent classifier + build the retrieval knowledge base (no API key needed)
+python -m src.pipeline train
 
-On a laptop this CPU workflow is generally under 15 minutes after the dataset is downloaded. An optional OpenAI-compatible call adds API cost and latency per draft; set `LLM_API_KEY`, `LLM_BASE_URL`, and `LLM_MODEL` in `.env`.
+# 4. Run the full eval harness: agent + 2 baselines + automated metrics + judge scores
+python -m src.eval.run_eval
 
-## Offline demo and tests
+# 5. (optional) Check how well the reply-quality judge agrees with a human
+python -m src.eval.human_agreement
 
-```powershell
+# 6. Try it interactively on a few example messages
 python scripts/run_demo.py
-pytest -q
 ```
 
-The demo uses `data/processed/sample.csv` and needs no download or API key. `tests/test_pipeline.py` covers classification, retrieval, drafting, and mandatory escalation behavior.
+All of the above is CPU-only, needs no API key, and takes well under 15 minutes on
+a laptop (steps 1–4 together take under a minute in practice; most of the 15-minute
+budget is `pip install`).
 
-## Evaluation protocol
+Headline numbers from the last run of step 4 (also in `reports/REPORT.md` and
+`eval_results/summary.json`):
 
-`eval/build_golden_set.py` creates a deterministic worksheet stratified by inferred intent, thread length, and negative/urgent language. Replace the blank truth fields through human review; inferred clusters are only a starting point. `eval/metrics.py` measures intent accuracy/macro-F1, retrieval hit rate, and escalation precision/recall/F1. `eval/llm_judge.py` contains the five-dimension 1-5 rubric, and `eval/judge_calibration.py` compares a human-scored subsample with quadratic Cohen's kappa.
+| System | Intent Acc | Escalation F1 | Unsafe Auto-Handle Rate |
+|---|---|---|---|
+| Trivial baseline | 0.173 | 0.398 | 0.000 |
+| Simple baseline | 0.887 | 0.000 | 1.000 |
+| **Full agent** | **0.895** | **0.718** | **0.152** |
 
-Banking77 can optionally sanity-check the mechanics of intent classification, but its labels are not used as AmazonHelp ground truth.
+*(Read §2 and especially §4 of the report before quoting these — the intent-accuracy
+gap between the full agent and the simple baseline looks small for a reason that's
+explained there, and it's not "classification barely matters.")*
+
+---
+
+## Repo layout
+
+```
+data_gen/                  # scripts that GENERATE data (not the data itself, though
+                            # outputs are checked in for reproducibility)
+  generate_sample_data.py  # synthetic-but-schema-faithful sample twcs-style dataset
+  weak_labeling.py          # keyword-rule weak labeler, used for classifier training data
+  build_golden_set.py       # builds the 156-example hand-labeled golden eval set
+
+data/
+  raw/                     # put the real Kaggle twcs.csv here if you have it (gitignored)
+  sample/                  # bundled synthetic sample dataset (generated, checked in)
+  golden/                  # golden_eval_set.csv — the hand-labeled eval set
+
+src/
+  data_prep.py              # loads raw data, filters to brand, reconstructs threads
+  intents.py                # intent taxonomy + TF-IDF/LogReg classifier
+  knowledge_base.py         # TF-IDF retrieval over historical resolutions
+  reply_generator.py        # grounded reply drafting (local + optional LLM rewrite)
+  escalation.py             # auto-handle vs. escalate rules, with stated reasons
+  pipeline.py                # SupportAgent glue class + `train` CLI
+  eval/
+    baselines.py             # trivial + simple baselines
+    metrics.py                # intent + escalation automated metrics
+    llm_judge.py               # LLM-as-judge rubric (+ heuristic fallback)
+    human_agreement.py         # judge-vs-human agreement calibration check
+    run_eval.py                 # main eval entry point
+
+reports/
+  REPORT.md                 # the required report (problem framing, results, failure
+                             # analysis, "misleading number" section, next steps)
+  decision_log.md           # 15 non-obvious decisions and why
+
+scripts/run_demo.py         # quick interactive demo
+tests/test_pipeline.py      # pytest sanity tests
+```
+
+---
+
+## Using the real Kaggle dataset instead of the bundled sample
+
+This environment couldn't reach Kaggle to download the real
+`thoughtvector/customer-support-on-twitter` dataset (it's behind a login), so the
+repo ships with `data_gen/generate_sample_data.py`, which generates a smaller
+dataset with the **exact same columns** as the real file
+(`tweet_id, author_id, inbound, created_at, text, response_tweet_id,
+in_response_to_tweet_id`). If you have the real file:
+
+```bash
+# download twcs.csv from https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter
+mkdir -p data/raw
+cp /path/to/twcs.csv data/raw/twcs.csv
+
+# everything else is unchanged — src/data_prep.py automatically prefers the real
+# file over the sample if it's present:
+python -m src.pipeline train
+python -m src.eval.run_eval
+```
+
+You may also want to rebuild the golden set from the real data
+(`python data_gen/build_golden_set.py`) so the stratified half reflects real
+customer language rather than the bundled templates — see
+`reports/decision_log.md` item 7 for the labeling methodology this script follows.
+
+## Using a real LLM instead of the local/heuristic defaults
+
+Everything above runs with **zero API keys**, by design (see decision log item 2
+and 11). If you set:
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+```
+
+then:
+- `src/reply_generator.py` will use the LLM to rewrite the retrieval-grounded
+  draft more naturally (still constrained to only use retrieved facts).
+- `src/eval/llm_judge.py` will use the real LLM-as-judge rubric instead of the
+  heuristic proxy scorer, and `src/eval/run_eval.py` / `human_agreement.py` will
+  report which backend was used.
+
+`pip install anthropic` if you want this path (not in `requirements.txt` by
+default, again to keep the zero-key path dependency-light).
+
+## Running tests
+
+```bash
+python -m src.pipeline train   # tests need trained artifacts
+pytest tests/ -q
+```

@@ -1,9 +1,0 @@
-Incoming message:
-{message}
-
-Predicted intent: {intent}
-
-Historical resolved examples:
-{examples}
-
-Return only the proposed customer-facing reply.

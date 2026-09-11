@@ -1,4 +1,4 @@
-# Hiver Take-Home — AI Support Agent for `@AskPlayStation`
+# Hiver Take Home AI Support Agent for `@AskPlayStation`
 
 An AI support agent built from the *Customer Support on Twitter* dataset shape,
 for a single brand (`@AskPlayStation`), that:
